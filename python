@@ -1,0 +1,41 @@
+""" Betty is a teacher who wants to create a program that modifies a sentence by replacing the first letter of each word with the corresponding uppercase letter and the rest of the letters in lowercase. 
+
+
+
+Help Betty to return the modified sentence.
+
+Input format :
+The input consists of a single line of string S, representing the sentence that Betty wants to modify.
+
+Output format :
+The output prints a single line of text where the first letter of each word in the input sentence is capitalized, and all other letters are in lowercase."""
+
+
+# Read input from the user
+sentence = input()
+
+# Initialize variables
+modified_sentence = ""
+word = ""
+in_word = False
+
+# Process each character in the sentence
+for char in sentence:
+    if char != ' ':
+        if not in_word:
+            # Start of a new word
+            in_word = True
+            # Append the capitalized first letter of the word
+            modified_sentence += char.upper()
+        else:
+            # Continue with the rest of the word in lowercase
+            modified_sentence += char.lower()
+    else:
+        # Space indicates end of the word
+        if in_word:
+            # Add the space to the modified sentence
+            modified_sentence += ' '
+            in_word = False
+
+# Print the resulting sentence
+print(modified_sentence)
